@@ -444,7 +444,7 @@ footer { background: var(--black); padding: 2.5rem; display: flex; align-items: 
       <div class="res-title">The Approval of the Israel Bonds Prospectus in Luxembourg</div>
       <div class="res-desc">A comprehensive legal and financial analysis covering the prospectus mechanism, Israel's war economy, the international legal framework, and concrete recommendations for the CSSF and the Luxembourg government.</div>
       <div class="res-authors">Anastasopoulou · Obeidat (Nashama) · Patone (ANPI Lussemburgo) · Sesti (LetzActForPalestine) · Supported by Collectives for Palestine</div>
-      <a href="CSSF_-_Israeli_Bonds_-_Report_-_v4_-_Final.pdf" target="_blank" class="res-link">Download Report ↗</a>
+      <a href="https://drive.google.com/file/d/1Q051vToXaLE8Jr6rZ3G-c4CfqEC4cGI7/view?usp=sharing" target="_blank" class="res-link">Download Report ↗</a>
     </div>
     <div class="res-card">
       <div class="res-type">Public conference · YouTube</div>
@@ -479,16 +479,16 @@ footer { background: var(--black); padding: 2.5rem; display: flex; align-items: 
     <div>
       <p class="contact-intro">Follow the campaign, share the message, and reach out directly. Together we can pressure Luxembourg's institutions to act.</p>
       <div class="contact-socials">
-        <a href="mailto:YOUR_EMAIL_HERE" class="social-link">
+        <a href="mailto:stopisraelbonds@gmail.com" class="social-link">
           <div class="social-icon email">
             <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
           <div>
             <div class="social-info-label">Email us</div>
-            <div class="social-info-name">contact@stopisraelbonds.lu</div>
+            <div class="social-info-name">stopisraelbonds@gmail.com</div>
           </div>
         </a>
-        <a href="YOUR_INSTAGRAM_URL_HERE" target="_blank" class="social-link">
+        <a href="https://www.instagram.com/stopisraelbonds/" target="_blank" class="social-link">
           <div class="social-icon instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="#c2185b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </div>
@@ -510,22 +510,40 @@ footer { background: var(--black); padding: 2.5rem; display: flex; align-items: 
     </div>
     <div>
       <div class="contact-form-title">Write to us</div>
-      <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="contact-form">
         <div class="form-group">
           <label class="form-label" for="cf-name">Your name</label>
-          <input class="form-input" type="text" id="cf-name" name="name" placeholder="Full name" required>
+          <input class="form-input" type="text" id="cf-name" placeholder="Full name">
         </div>
         <div class="form-group">
           <label class="form-label" for="cf-email">Your email</label>
-          <input class="form-input" type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+          <input class="form-input" type="email" id="cf-email" placeholder="you@example.com">
         </div>
         <div class="form-group">
           <label class="form-label" for="cf-msg">Message</label>
-          <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Your message, question or support offer…" required></textarea>
+          <textarea class="form-textarea" id="cf-msg" placeholder="Your message, question or support offer…"></textarea>
         </div>
-        <button type="submit" class="form-submit">Send message →</button>
-        <p class="form-note">We read every message and reply as soon as we can.</p>
-      </form>
+        <button class="form-submit" onclick="sendMail()">Send message →</button>
+        <p class="form-note" id="cf-note">We read every message and reply as soon as we can.</p>
+      </div>
+      <script>
+      function sendMail() {
+        var name = document.getElementById('cf-name').value.trim();
+        var email = document.getElementById('cf-email').value.trim();
+        var msg = document.getElementById('cf-msg').value.trim();
+        var note = document.getElementById('cf-note');
+        if (!name || !email || !msg) {
+          note.textContent = 'Please fill in all fields before sending.';
+          note.style.color = '#E8001D';
+          return;
+        }
+        var subject = encodeURIComponent('Message from ' + name + ' via StopIsraelBonds.com');
+        var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg);
+        window.location.href = 'mailto:stopisraelbonds@gmail.com?subject=' + subject + '&body=' + body;
+        note.textContent = 'Your email client should open now. Thank you for reaching out!';
+        note.style.color = '#1D7A4A';
+      }
+      </script>
     </div>
   </div>
 </section>
@@ -542,10 +560,10 @@ footer { background: var(--black); padding: 2.5rem; display: flex; align-items: 
   </div>
   <div class="footer-hash">#StopIsraelBonds</div>
   <div style="display:flex;gap:0.75rem;align-items:center;">
-    <a href="mailto:YOUR_EMAIL_HERE" title="Email" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+    <a href="mailto:stopisraelbonds@gmail.com" title="Email" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
     </a>
-    <a href="YOUR_INSTAGRAM_URL_HERE" target="_blank" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+    <a href="https://www.instagram.com/stopisraelbonds/" target="_blank" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
     </a>
     <a href="YOUR_FACEBOOK_URL_HERE" target="_blank" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
