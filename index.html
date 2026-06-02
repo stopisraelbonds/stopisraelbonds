@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop Israel Bonds</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black:  #111111;
+  --red:    #E8001D;
+  --green:  #1D7A4A;
+  --white:  #ffffff;
+  --display: 'Barlow Condensed', sans-serif;
+  --body:    'Nunito Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--white); color: var(--black); font-family: var(--body); font-size: 18px; line-height: 1.75; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 2.5rem; background: var(--white); border-bottom: 2px solid #eee; }
+.nav-logo { font-family: var(--display); font-weight: 900; font-size: 20px; text-transform: uppercase; color: var(--black); text-decoration: none; letter-spacing: 0.04em; }
+.nav-logo .war { color: var(--red); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #999; text-decoration: none; font-weight: 700; transition: color 0.2s; }
+.nav-links a:hover { color: var(--black); }
+.nav-cta { background: var(--green) !important; color: var(--white) !important; padding: 8px 20px; border-radius: 20px; font-weight: 800 !important; }
+
+/* HERO - BIANCO con testo rosso */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 9rem 2.5rem 5rem; position: relative; overflow: hidden; background: var(--white); }
+.hero-grid { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(0,0,0,0.03) 79px, rgba(0,0,0,0.03) 80px); }
+.hero-eyebrow { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 1.5rem; }
+.hero-title { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; }
+.hero-title .b1 { background: var(--red); padding: 6px 14px 4px; }
+.hero-title .b2 { background: var(--black); padding: 6px 14px 4px; margin-left: 22px; }
+.hero-title .b3 { background: var(--green); padding: 6px 14px 4px; margin-left: 44px; }
+.hero-title span { font-family: var(--display); font-weight: 900; font-size: clamp(90px, 13vw, 170px); text-transform: uppercase; line-height: 1; display: block; white-space: nowrap; }
+.hero-title .b1 span { color: var(--white); }
+.hero-title .b2 span { color: var(--red); }
+.hero-title .b3 span { color: var(--white); }
+.hero-sub-block { margin-top: 2.5rem; max-width: 680px; }
+.hero-tagline { font-family: var(--display); font-weight: 900; font-size: clamp(20px, 3vw, 32px); text-transform: uppercase; color: var(--black); line-height: 1.1; margin-bottom: 0.6rem; }
+.hero-sub { font-size: 16px; color: #666; line-height: 1.7; }
+.hero-sub strong { color: var(--black); font-weight: 700; }
+.hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 4rem; }
+.hero-hashtag { font-family: var(--display); font-weight: 900; font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: #ccc; }
+.hero-scroll { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #ccc; display: flex; align-items: center; gap: 8px; }
+.scroll-line { width: 1px; height: 44px; background: #ddd; display: block; }
+
+/* SECTION BASICS */
+section { padding: 6rem 2.5rem; }
+.section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 800; margin-bottom: 1rem; font-family: var(--body); }
+.section-title { font-family: var(--display); font-weight: 900; font-size: clamp(42px, 5vw, 68px); text-transform: uppercase; line-height: 0.95; margin-bottom: 2.5rem; }
+
+/* FACTS - ROSSO */
+.facts { background: var(--red); }
+.facts .section-label { color: rgba(255,255,255,0.5); }
+.facts .section-title { color: var(--white); }
+.facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.15); border: 2px solid rgba(0,0,0,0.15); border-radius: 10px; overflow: hidden; margin-top: 1rem; }
+.fact-card { background: rgba(255,255,255,0.08); padding: 2.5rem 2rem; }
+.fact-num { font-family: var(--display); font-weight: 900; font-size: 72px; line-height: 1; color: var(--white); }
+.fact-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; color: rgba(255,255,255,0.6); margin: 0.5rem 0 0.75rem; }
+.fact-desc { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+.fact-source { display: inline-block; margin-top: 1rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 800; }
+
+/* LAW - VERDE */
+.law { background: var(--green); }
+.law .section-label { color: rgba(255,255,255,0.4); }
+.law .section-title { color: var(--white); }
+.law-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.law-duties { border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; overflow: hidden; }
+.duty { padding: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; gap: 1.25rem; align-items: flex-start; }
+.duty:last-child { border-bottom: none; }
+.duty-num { font-family: var(--display); font-weight: 900; font-size: 36px; color: rgba(255,255,255,0.08); line-height: 1; flex-shrink: 0; width: 44px; }
+.duty-title { font-family: var(--display); font-weight: 900; font-size: 21px; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+.duty-text { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+.duty-badge { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
+.law-right { display: flex; flex-direction: column; gap: 1.5rem; }
+.law-quote { padding: 2rem; background: rgba(0,0,0,0.12); border-radius: 8px; }
+.law-quote-text { font-family: var(--display); font-weight: 900; font-size: 22px; text-transform: uppercase; color: var(--white); line-height: 1.25; margin-bottom: 0.75rem; }
+.law-quote-attr { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 700; }
+.law-note { padding: 1.5rem; background: rgba(0,0,0,0.1); border-radius: 6px; font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.law-note strong { color: var(--white); font-weight: 700; }
+
+/* BONDS - BIANCO */
+.bonds { background: var(--white); }
+.bonds .section-label { color: var(--green); }
+.bonds .section-title { color: var(--black); }
+.bonds-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+.bonds-text { font-size: 17px; color: #444; line-height: 1.8; }
+.bonds-text strong { color: var(--black); font-weight: 700; }
+.bonds-text p + p { margin-top: 1rem; }
+.flow { border-radius: 8px; overflow: hidden; border: 2px solid #e8e8e8; }
+.flow-step { padding: 1.25rem 1.5rem; border-bottom: 2px solid #e8e8e8; background: var(--white); }
+.flow-arrow { text-align: center; padding: 7px; background: #f7f7f7; border-bottom: 2px solid #e8e8e8; color: var(--green); font-weight: 900; font-size: 16px; }
+.flow-step-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #bbb; font-weight: 700; margin-bottom: 3px; }
+.flow-step-title { font-family: var(--display); font-weight: 900; font-size: 17px; color: var(--black); text-transform: uppercase; }
+.flow-end { padding: 1.25rem 1.5rem; background: var(--green); }
+.flow-end .flow-step-label { color: rgba(255,255,255,0.4); }
+.flow-end .flow-step-title { color: var(--white); }
+
+/* WAR BY NUMBERS - VERDE */
+.data { background: var(--green); }
+.data .section-label { color: rgba(255,255,255,0.4); }
+.data .section-title { color: var(--white); }
+.data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(0,0,0,0.15); border: 2px solid rgba(0,0,0,0.15); border-radius: 10px; overflow: hidden; margin-top: 1rem; }
+.data-card { background: rgba(255,255,255,0.07); padding: 2.25rem 2rem; }
+.data-card-head { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.38); font-weight: 800; margin-bottom: 0.75rem; }
+.data-card-num { font-family: var(--display); font-weight: 900; font-size: 60px; line-height: 1; color: var(--white); margin-bottom: 0.5rem; }
+.data-card-num .unit { color: rgba(255,255,255,0.4); font-size: 44px; }
+.data-card-label { font-size: 16px; color: rgba(255,255,255,0.58); line-height: 1.7; }
+.data-card-source { display: inline-block; margin-top: 0.75rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); font-weight: 700; }
+.data-pullquote { background: rgba(0,0,0,0.18); padding: 2.25rem 2.5rem; border-radius: 0 0 8px 8px; margin-top: 2px; }
+.data-pullquote-text { font-family: var(--display); font-weight: 900; font-size: clamp(18px, 2.5vw, 26px); text-transform: uppercase; color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; }
+.data-pullquote-text em { color: rgba(255,255,255,0.42); font-style: normal; }
+.data-pullquote-attr { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); font-weight: 700; }
+
+/* WHAT TO DO - BIANCO */
+.do { background: var(--white); }
+.do .section-label { color: var(--green); }
+.do .section-title { color: var(--black); }
+.do-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #e8e8e8; border: 2px solid #e8e8e8; border-radius: 10px; overflow: hidden; margin-top: 1rem; }
+.do-card { background: var(--white); padding: 2.5rem 2rem; }
+.do-num { font-family: var(--display); font-weight: 900; font-size: 52px; color: var(--green); opacity: 0.12; line-height: 1; margin-bottom: 1rem; }
+.do-title { font-family: var(--display); font-weight: 900; font-size: 20px; text-transform: uppercase; color: var(--black); margin-bottom: 0.75rem; line-height: 1.15; }
+.do-text { font-size: 16px; color: #555; line-height: 1.7; }
+.do-tag { display: inline-block; margin-top: 1.25rem; background: var(--green); color: var(--white); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
+
+/* RESOURCES - BIANCO */
+.resources { background: var(--white); border-top: 2px solid #e8e8e8; }
+.resources .section-label { color: var(--green); }
+.resources .section-title { color: var(--black); }
+.resources-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: #e8e8e8; border: 2px solid #e8e8e8; border-radius: 10px; overflow: hidden; margin-top: 1rem; }
+.res-card { background: var(--white); padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.res-type { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); font-weight: 800; }
+.res-title { font-family: var(--display); font-weight: 900; font-size: 22px; text-transform: uppercase; color: var(--black); line-height: 1.15; }
+.res-desc { font-size: 16px; color: #555; line-height: 1.7; flex: 1; }
+.res-authors { font-size: 13px; color: #aaa; }
+.res-link { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: var(--white); font-family: var(--body); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 13px 24px; border-radius: 20px; text-decoration: none; align-self: flex-start; transition: background 0.2s; }
+.res-link:hover { background: #155736; }
+
+/* ACTION - ROSSO */
+.action { background: var(--red); text-align: center; padding: 9rem 2.5rem; }
+.action .section-label { color: rgba(255,255,255,0.4); }
+.action-title { display: flex; flex-direction: column; gap: 5px; align-items: center; margin-bottom: 0.5rem; }
+.action-title .b1 { background: var(--white); padding: 6px 24px 4px; display: inline-block; }
+.action-title .b2 { background: var(--black); padding: 6px 24px 4px; display: inline-block; margin-left: 18px; }
+.action-title .b3 { background: var(--green); padding: 6px 24px 4px; display: inline-block; margin-left: 36px; }
+.action-title span { font-family: var(--display); font-weight: 900; font-size: clamp(56px, 9vw, 120px); text-transform: uppercase; line-height: 1; display: block; }
+.action-title .b1 span { color: var(--red); }
+.action-title .b2 span { color: var(--red); }
+.action-title .b3 span { color: var(--white); }
+.action-tagline { font-family: var(--display); font-weight: 900; font-size: clamp(18px, 2.5vw, 28px); text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 2.5rem; }
+.action-desc { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 3rem; line-height: 1.75; }
+.btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-w { background: var(--white); color: var(--red); font-family: var(--body); font-weight: 800; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 36px; border: none; cursor: pointer; border-radius: 20px; text-decoration: none; }
+.btn-o { background: transparent; color: var(--white); font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 36px; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer; border-radius: 20px; text-decoration: none; }
+.btn-w:hover { opacity: 0.9; }
+.btn-o:hover { border-color: rgba(255,255,255,0.7); }
+
+/* CONTACT - BIANCO */
+.contact { background: var(--white); border-top: 2px solid #e8e8e8; }
+.contact .section-label { color: var(--red); }
+.contact .section-title { color: var(--black); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 1rem; }
+.contact-socials { display: flex; flex-direction: column; gap: 1rem; }
+.contact-intro { font-size: 17px; color: #555; line-height: 1.8; margin-bottom: 1.5rem; }
+.social-link { display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; border: 2px solid #e8e8e8; border-radius: 10px; text-decoration: none; color: var(--black); transition: border-color 0.2s, background 0.2s; }
+.social-link:hover { border-color: var(--green); background: #f7fdf9; }
+.social-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.social-icon svg { width: 22px; height: 22px; }
+.social-icon.email { background: #f0f0f0; }
+.social-icon.instagram { background: #fce4ec; }
+.social-icon.facebook { background: #e3f0fc; }
+.social-info-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 800; color: #bbb; margin-bottom: 2px; }
+.social-info-name { font-family: var(--display); font-weight: 900; font-size: 18px; text-transform: uppercase; color: var(--black); }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.contact-form-title { font-family: var(--display); font-weight: 900; font-size: 28px; text-transform: uppercase; color: var(--black); margin-bottom: 0.5rem; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 800; color: #999; }
+.form-input { padding: 14px 16px; border: 2px solid #e8e8e8; border-radius: 8px; font-family: var(--body); font-size: 16px; color: var(--black); background: var(--white); outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: var(--green); }
+.form-textarea { padding: 14px 16px; border: 2px solid #e8e8e8; border-radius: 8px; font-family: var(--body); font-size: 16px; color: var(--black); background: var(--white); outline: none; transition: border-color 0.2s; resize: vertical; min-height: 140px; }
+.form-textarea:focus { border-color: var(--green); }
+.form-submit { background: var(--green); color: var(--white); font-family: var(--body); font-weight: 800; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 36px; border: none; cursor: pointer; border-radius: 20px; align-self: flex-start; transition: background 0.2s; }
+.form-submit:hover { background: #155736; }
+.form-note { font-size: 13px; color: #bbb; line-height: 1.6; }
+
+/* FOOTER */
+footer { background: var(--black); padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.footer-logo { display: flex; flex-direction: column; gap: 3px; }
+.footer-logo .b1 { background: var(--red); padding: 2px 12px; }
+.footer-logo .b2 { background: #2a2a2a; padding: 2px 12px; margin-left: 7px; }
+.footer-logo .b3 { background: var(--green); padding: 2px 12px; margin-left: 14px; }
+.footer-logo span { font-family: var(--display); font-weight: 900; font-size: 24px; text-transform: uppercase; line-height: 1; display: block; }
+.footer-logo .b1 span { color: var(--white); }
+.footer-logo .b2 span { color: var(--red); }
+.footer-logo .b3 span { color: var(--white); }
+.footer-sub { font-size: 12px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+.footer-hash { font-family: var(--display); font-weight: 900; font-size: 18px; text-transform: uppercase; color: rgba(255,255,255,0.1); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Stop <span class="war">Israel</span> Bonds</a>
+  <ul class="nav-links">
+    <li><a href="#facts">Facts</a></li>
+    <li><a href="#law">The Law</a></li>
+    <li><a href="#bonds">The Bonds</a></li>
+    <li><a href="#do">Take Action</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#action" class="nav-cta">Act Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO - ROSSO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-eyebrow">A civic campaign · Luxembourg · 2026</div>
+  <div class="hero-title">
+    <div class="b1"><span>Stop</span></div>
+    <div class="b2"><span>Israel</span></div>
+    <div class="b3"><span>Bonds</span></div>
+  </div>
+  <div class="hero-sub-block">
+    <div class="hero-tagline">The law is clear. Stop financing international crimes.</div>
+    <div class="hero-sub"><strong>Luxembourg finances illegal occupation and war.</strong> International law demands it stops.</div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-hashtag">#StopIsraelBonds</div>
+    <div class="hero-scroll"><span class="scroll-line"></span>Scroll</div>
+  </div>
+</section>
+
+<!-- FACTS - BIANCO -->
+<section class="facts" id="facts">
+  <div class="section-label">The facts</div>
+  <h2 class="section-title">What is happening</h2>
+  <div class="facts-grid">
+    <div class="fact-card">
+      <div class="fact-num">31%</div>
+      <div class="fact-label">of Israel's budget now goes to war</div>
+      <div class="fact-desc">Defence consumption jumped from a historical average of 20% to 31.5% of total government spending in a single quarter, Q4 2023. It has remained structurally elevated near 30% through 2025, crowding out all civilian investment.</div>
+      <div class="fact-source">Israeli CBS National Accounts · 2025</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">$8B</div>
+      <div class="fact-label">in bonds in March 2024 alone</div>
+      <div class="fact-desc">Israel issued $8 billion in international bonds in a single month. A further $5 billion followed in February 2025, and $6 billion in January 2026. Proceeds flow directly into the general state budget with no ring-fencing from military expenditure.</div>
+      <div class="fact-source">UN Special Rapporteur · Reuters · 2025–26</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">€417M</div>
+      <div class="fact-label">raised in the EU since Oct 2023</div>
+      <div class="fact-desc">Between October 2023 and April 2025, €417 million in Israel Bonds were sold across France, Germany, Austria, Belgium and Ireland under CBI approval. Since September 2025, the CSSF has taken over as the approving authority.</div>
+      <div class="fact-source">Central Bank of Ireland · Report 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAW - VERDE -->
+<section class="law" id="law">
+  <div class="section-label">International law</div>
+  <h2 class="section-title">What the law demands</h2>
+  <div class="law-layout">
+    <div class="law-duties">
+      <div class="duty">
+        <div class="duty-num">01</div>
+        <div>
+          <div class="duty-title">Non-Recognition</div>
+          <div class="duty-text">States must not recognise the legal effects of illegal acts. Anything arising from Israel's illegal occupation has no legal value under international law.</div>
+          <div class="duty-badge">ICJ Advisory Opinion · July 2024</div>
+        </div>
+      </div>
+      <div class="duty">
+        <div class="duty-num">02</div>
+        <div>
+          <div class="duty-title">Non-Assistance</div>
+          <div class="duty-text">All states must not render aid or assistance in maintaining Israel's illegal situation. Approving a prospectus that enables Israel to raise funds for "general financing" with no ring-fencing from military use risks falling within this prohibition.</div>
+          <div class="duty-badge">ICJ Advisory Opinion · Art. 16 ILC Articles</div>
+        </div>
+      </div>
+      <div class="duty">
+        <div class="duty-num">03</div>
+        <div>
+          <div class="duty-title">Prevent Genocide</div>
+          <div class="duty-text">Under the 1948 Genocide Convention, every state must act the moment it learns of a serious risk of genocide. The ICJ confirmed this threshold has been met. Three separate orders in January, March and May 2024 each found the situation was worsening.</div>
+          <div class="duty-badge">Genocide Convention · Bosnia v. Serbia · 2007</div>
+        </div>
+      </div>
+      <div class="duty">
+        <div class="duty-num">04</div>
+        <div>
+          <div class="duty-title">Duty to Cooperate</div>
+          <div class="duty-text">All states must use their leverage to end the illegality. For Luxembourg, Europe's largest ESG hub and a global financial centre, that leverage is concrete and immediate.</div>
+          <div class="duty-badge">Jus Cogens obligation · all states</div>
+        </div>
+      </div>
+    </div>
+    <div class="law-right">
+      <div class="law-quote">
+        <div class="law-quote-text">"Inaction by Luxembourg is not an option. There are certain things we have to do."</div>
+        <div class="law-quote-attr">Franz Fayot · MP Luxembourg · March 2026</div>
+      </div>
+      <div class="law-note">In March 2026, two independent legal opinions from the University of Luxembourg and Utrecht University confirmed: <strong>grave violations of international law by Israel are beyond doubt. Luxembourg has concrete obligations to act.</strong></div>
+      <div class="law-note">On 22 September 2025, Luxembourg formally recognised the State of Palestine. <strong>A state cannot recognise a people's right to self-determination while providing the financial infrastructure to fund operations the ICJ has found plausibly amount to their genocide.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- BONDS - BIANCO -->
+<section class="bonds" id="bonds">
+  <div class="section-label">The mechanism</div>
+  <h2 class="section-title">How the bonds work</h2>
+  <div class="bonds-layout">
+    <div class="bonds-text">
+      <p>Israel Bonds are <strong>not standard sovereign debt.</strong> They are structurally illiquid, non-negotiable instruments sold directly to retail investors, religious organisations and municipal funds, bypassing the institutional market discipline that correctly prices in wartime risk.</p>
+      <p>The CSSF approved the prospectus on <strong>1 September 2025</strong> without prior consultation with Luxembourg's Ministry of Foreign Affairs. It wrote to Deputy Prime Minister Bettel only two weeks later to request the government's opinion.</p>
+      <p><strong>The bond proceeds are fungible.</strong> They flow directly into Israel's general state budget with no ring-fencing from military expenditure, settlement construction, or any other state activity. Israel's own marketing, "Stand with Israel. Israel is at War," makes the purpose explicit.</p>
+      <p>Bond sales have ended in Belgium, Spain and Ireland. Under sustained political and legal pressure, Ireland's Central Bank transferred the prospectus to Luxembourg. <strong>The CSSF is now the last active gateway for Israel Bonds in the EU.</strong></p>
+    </div>
+    <div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-step-label">Issuer</div>
+          <div class="flow-step-title">State of Israel via DCI</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-step-label">Approved by, transferred from Ireland</div>
+          <div class="flow-step-title">CSSF · Luxembourg · 1 Sep 2025</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-step-label">Marketed to</div>
+          <div class="flow-step-title">Retail buyers · Religious orgs · Municipal funds</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-step-label">Distributed across EU</div>
+          <div class="flow-step-title">Austria · France · Germany · Netherlands · Luxembourg</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-end">
+          <div class="flow-step-label">Proceeds enter with no earmarking</div>
+          <div class="flow-step-title">Israel's general budget including war expenditure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAR BY NUMBERS - VERDE -->
+<section class="data" id="data">
+  <div class="section-label">Financial reality</div>
+  <h2 class="section-title">War by numbers</h2>
+  <div class="data-grid">
+    <div class="data-card">
+      <div class="data-card-head">Israel's national deficit · 2024</div>
+      <div class="data-card-num">6.8<span class="unit">%</span></div>
+      <div class="data-card-label">Of GDP, up from 4.1% in 2023. Public debt rose from 61.5% to 67.9% in one year. In Q4 2023, government defence spending was the sole positive contributor to GDP growth.</div>
+      <div class="data-card-source">Israel Bond Prospectus 2025 · Israeli CBS</div>
+    </div>
+    <div class="data-card">
+      <div class="data-card-head">Israel's yield vs Ukraine's war bond</div>
+      <div class="data-card-num">3.96<span class="unit">%</span></div>
+      <div class="data-card-label">Israel's 10-year yield, against Ukraine's 1-year war bond yield of 25.05% and Russia's at 14.60%. Retail investors accept rates far below true war risk, effectively subsidising military spending.</div>
+      <div class="data-card-source">investing.com · Israel Bonds Prospectus 2025</div>
+    </div>
+    <div class="data-card">
+      <div class="data-card-head">EU sales under CSSF · Dec 2025 to Feb 2026</div>
+      <div class="data-card-num">€19<span class="unit">M</span></div>
+      <div class="data-card-label">Sold in just 10 weeks. 92.6% of sales were in denominations above €1,000. No independent audit or public breakdown has been published by the CSSF.</div>
+      <div class="data-card-source">DCI EU Sales Reports · israelbondsintl.com</div>
+    </div>
+    <div class="data-card">
+      <div class="data-card-head">Sovereign credit rating downgrades</div>
+      <div class="data-card-num">3<span class="unit">x</span></div>
+      <div class="data-card-label">S&amp;P, Moody's and Fitch all downgraded Israel's sovereign credit rating after October 2023. Moody's enacted consecutive downgrades, reaching Baa1 with negative outlook. Retail marketing contradicts these institutional verdicts.</div>
+      <div class="data-card-source">Moody's · S&amp;P · Fitch · 2024–25</div>
+    </div>
+  </div>
+  <div class="data-pullquote">
+    <div class="data-pullquote-text">"Treasury bonds have played a <em>critical role</em> in funding the ongoing assault on Gaza."</div>
+    <div class="data-pullquote-attr">Francesca Albanese · UN Special Rapporteur on Palestine · June 2025</div>
+  </div>
+</section>
+
+<!-- WHAT TO DO - BIANCO -->
+<section class="do" id="do">
+  <div class="section-label">Concrete action</div>
+  <h2 class="section-title">What Luxembourg<br>can do now</h2>
+  <div class="do-grid">
+    <div class="do-card">
+      <div class="do-num">01</div>
+      <div class="do-title">Suspend and refuse bond prospectuses</div>
+      <div class="do-text">The CSSF must immediately suspend the 1 September 2025 approval and refuse renewal. It has supervisory power to require supplemental information and suspend offers under Art. 23 of the Prospectus Regulation.</div>
+      <div class="do-tag">Financial regulator</div>
+    </div>
+    <div class="do-card">
+      <div class="do-num">02</div>
+      <div class="do-title">Cooperate fully with the ICC</div>
+      <div class="do-text">Luxembourg must support the International Criminal Court without reservation. An arrest warrant has been issued for Israel's Prime Minister. Cooperation with international justice is a legal obligation, not a choice.</div>
+      <div class="do-tag">International law</div>
+    </div>
+    <div class="do-card">
+      <div class="do-num">03</div>
+      <div class="do-title">End trade with illegal settlements</div>
+      <div class="do-text">Both legal opinions are clear: Luxembourg must prevent trade between enterprises here and companies operating in illegal Israel settlements. The Luxembourg Fonds de Compensation remains invested in companies on the OHCHR database.</div>
+      <div class="do-tag">Trade policy</div>
+    </div>
+    <div class="do-card">
+      <div class="do-num">04</div>
+      <div class="do-title">Commission an independent legal study</div>
+      <div class="do-text">The CSSF must commission an urgent independent study on Luxembourg's international law obligations, assessing the duty to prevent, non-assistance, and the adequacy of existing supervisory tools for sovereign issuers in conflict situations.</div>
+      <div class="do-tag">Due diligence</div>
+    </div>
+    <div class="do-card">
+      <div class="do-num">05</div>
+      <div class="do-title">Coordinate with Ireland and notify ESMA</div>
+      <div class="do-text">Ireland remains the home state for Israel bond prospectuses. If Luxembourg and Ireland act together and notify ESMA, Israel cannot sell bonds within the EU. Fragmented supervision must end.</div>
+      <div class="do-tag">EU coordination</div>
+    </div>
+    <div class="do-card">
+      <div class="do-num">06</div>
+      <div class="do-title">Adopt national restrictive measures</div>
+      <div class="do-text">At state level, Luxembourg can adopt national or EU restrictive measures to ensure its financial sector does not contribute to internationally wrongful conduct, as it did in response to Russia's invasion of Ukraine.</div>
+      <div class="do-tag">State policy</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES - BIANCO -->
+<section class="resources" id="resources">
+  <div class="section-label">Go deeper</div>
+  <h2 class="section-title">Resources</h2>
+  <div class="resources-grid">
+    <div class="res-card">
+      <div class="res-type">Full report · PDF</div>
+      <div class="res-title">The Approval of the Israel Bonds Prospectus in Luxembourg</div>
+      <div class="res-desc">A comprehensive legal and financial analysis covering the prospectus mechanism, Israel's war economy, the international legal framework, and concrete recommendations for the CSSF and the Luxembourg government.</div>
+      <div class="res-authors">Anastasopoulou · Obeidat (Nashama) · Patone (ANPI Lussemburgo) · Sesti (LetzActForPalestine) · Supported by Collectives for Palestine</div>
+      <a href="CSSF_-_Israeli_Bonds_-_Report_-_v4_-_Final.pdf" target="_blank" class="res-link">Download Report ↗</a>
+    </div>
+    <div class="res-card">
+      <div class="res-type">Public conference · YouTube</div>
+      <div class="res-title">Conference on Luxembourg's Obligations and the Israel Bonds</div>
+      <div class="res-desc">Legal experts, civil society representatives and political figures discuss Luxembourg's obligations under international law and the role of the CSSF in facilitating Israel's access to European capital markets.</div>
+      <a href="https://www.youtube.com/watch?v=pv1vqYp2PYA&t=15522s" target="_blank" class="res-link">Watch on YouTube ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION - ROSSO -->
+<section class="action" id="action">
+  <div class="section-label">Join the campaign</div>
+  <div class="action-title">
+    <div class="b1"><span>Stop</span></div>
+    <div class="b2"><span>Israel</span></div>
+    <div class="b3"><span>Bonds</span></div>
+  </div>
+  <div class="action-tagline">The law is clear. Stop financing international crimes.</div>
+  <p class="action-desc">Share this campaign. Pressure your representatives. Demand Luxembourg's financial sector aligns with what international law demands.</p>
+  <div class="btns">
+    <a href="#" class="btn-w">Share the campaign</a>
+    <a href="#" class="btn-o">Write to your MP</a>
+  </div>
+</section>
+
+<!-- CONTACT - BIANCO -->
+<section class="contact" id="contact">
+  <div class="section-label">Get in touch</div>
+  <h2 class="section-title">Connect with us</h2>
+  <div class="contact-layout">
+    <div>
+      <p class="contact-intro">Follow the campaign, share the message, and reach out directly. Together we can pressure Luxembourg's institutions to act.</p>
+      <div class="contact-socials">
+        <a href="mailto:YOUR_EMAIL_HERE" class="social-link">
+          <div class="social-icon email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="social-info-label">Email us</div>
+            <div class="social-info-name">contact@stopisraelbonds.lu</div>
+          </div>
+        </a>
+        <a href="YOUR_INSTAGRAM_URL_HERE" target="_blank" class="social-link">
+          <div class="social-icon instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c2185b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div>
+            <div class="social-info-label">Instagram</div>
+            <div class="social-info-name">@StopIsraelBonds</div>
+          </div>
+        </a>
+        <a href="YOUR_FACEBOOK_URL_HERE" target="_blank" class="social-link">
+          <div class="social-icon facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div>
+            <div class="social-info-label">Facebook</div>
+            <div class="social-info-name">Stop Israel Bonds</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form-title">Write to us</div>
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="cf-name">Your name</label>
+          <input class="form-input" type="text" id="cf-name" name="name" placeholder="Full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-email">Your email</label>
+          <input class="form-input" type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-msg">Message</label>
+          <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Your message, question or support offer…" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send message →</button>
+        <p class="form-note">We read every message and reply as soon as we can.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">
+      <div class="b1"><span>Stop</span></div>
+      <div class="b2"><span>Israel</span></div>
+      <div class="b3"><span>Bonds</span></div>
+    </div>
+    <div class="footer-sub">The law is clear. Stop financing international crimes. · Luxembourg · 2026</div>
+  </div>
+  <div class="footer-hash">#StopIsraelBonds</div>
+  <div style="display:flex;gap:0.75rem;align-items:center;">
+    <a href="mailto:YOUR_EMAIL_HERE" title="Email" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    </a>
+    <a href="YOUR_INSTAGRAM_URL_HERE" target="_blank" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="YOUR_FACEBOOK_URL_HERE" target="_blank" title="Facebook" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
